@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CheckPoint</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+</head>
+
+<body>
+
+    <div class="container" id="container">
+        <div class="form-container sign-up-container">
+            <form action="#">
+                <h1>Crie sua Conta</h1>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-google"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <span>ou use seu email para se cadastrar</span>
+                <div class="input-group">
+                    <i class="fa-solid fa-user icon"></i>
+                    <input type="text" placeholder="Nome Completo" required>
+                </div>
+                <div class="input-group">
+                    <i class="fa-solid fa-envelope icon"></i>
+                    <input type="email" placeholder="Email" required>
+                </div>
+                <div class="input-group select-wrapper">
+                    <i class="fa-solid fa-diagram-project icon"></i>
+                    <select id="projeto" name="projeto" required>
+                        <option value="" disabled selected>Selecione seu projeto</option>
+                        <option value="SCFV">SCFV</option>
+                        <option value="PJA">Programa Jovem Aprendiz (PJA)</option>
+                        <option value="Primeiro Passo">Primeiro Passo</option>
+                    </select>
+                    <div class="select-arrow"><i class="fa-solid fa-chevron-down"></i></div>
+                </div>
+                <div class="input-group">
+                    <i class="fa-solid fa-lock icon"></i>
+                    <input type="password" placeholder="Senha" required>
+                </div>
+                <button class="main-button" type="submit" style="margin-top: 10px;">Cadastrar</button>
+            </form>
+        </div>
+
+        <div class="form-container sign-in-container">
+            <form action="#">
+                <h1>Login</h1>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-google"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <span>ou use sua conta</span>
+                <div class="input-group">
+                    <i class="fa-solid fa-envelope icon"></i>
+                    <input type="email" placeholder="Email" required />
+                </div>
+                <div class="input-group">
+                    <i class="fa-solid fa-lock icon"></i>
+                    <input type="password" placeholder="Senha" required />
+                </div>
+                <a href="#">Esqueceu sua senha?</a>
+                <button class="main-button" type="submit">Entrar</button>
+            </form>
+        </div>
+
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Bem-vindo de Volta!</h1>
+                    <p>Já possui uma conta?</p>
+                    <button class="panel-button" id="signIn" type="button">Faça Login</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Olá, Bem-vindo!</h1>
+                    <p>Ainda não tem uma conta?</p>
+                    <button class="panel-button" id="signUp" type="button">Cadastre-se</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
