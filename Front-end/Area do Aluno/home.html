@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área do Aluno - Checkpoint</title>
+    <link rel="stylesheet" href="home.style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- BARRA DE NAVEGAÇÃO LATERAL (SIDEBAR) -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <img src="./imagens/logo branca.png" alt="Ícone Checkpoint" class="logo-icon">
+                <h2 class="sidebar-text">Checkpoint</h2>
+            </div>
+            
+            <nav class="app-nav">
+                <ul>
+                    <li><a href="#" class="nav-link active" data-target="dashboard"><i class="fa-solid fa-house"></i> <span class="sidebar-text">Início</span></a></li>
+                    <li><a href="#" class="nav-link" data-target="checkin"><i class="fa-solid fa-right-to-bracket"></i> <span class="sidebar-text">Check-in / Out</span></a></li>
+                    <li><a href="#" class="nav-link" data-target="agenda"><i class="fa-solid fa-calendar-days"></i> <span class="sidebar-text">Minha Agenda</span></a></li>
+                    <li><a href="#" class="nav-link" data-target="achievements"><i class="fa-solid fa-trophy"></i> <span class="sidebar-text">Conquistas</span></a></li>
+                    <li><a href="#" class="nav-link" data-target="info"><i class="fa-solid fa-user"></i> <span class="sidebar-text">Informações</span></a></li>
+                    <li><a href="#" class="nav-link" data-target="history"><i class="fa-solid fa-clock-rotate-left"></i> <span class="sidebar-text">Histórico</span></a></li>
+                    <li><a href="#" class="nav-link" data-target="settings"><i class="fa-solid fa-gear"></i> <span class="sidebar-text">Configurações</span></a></li>
+                </ul>
+            </nav>
+
+            <div class="profile">
+                <div class="profile-pic-container">
+                    <img src="https://i.pravatar.cc/150?img=32" alt="Foto do Aluno" id="profile-pic" class="profile-pic">
+                    <label for="photo-upload" class="profile-pic-edit">
+                        <i class="fa-solid fa-camera"></i>
+                    </label>
+                    <input type="file" id="photo-upload" accept="image/*" style="display: none;">
+                </div>
+                <div class="profile-info sidebar-text">
+                    <p class="profile-name">Mariana Lima</p>
+                    <a href="index.html" class="logout-link">Sair <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+                </div>
+            </div>
+        </aside>
+
+        <!-- ÁREA DE CONTEÚDO PRINCIPAL -->
+        <main class="main-content" id="main-content">
+            <header class="main-header">
+                <nav class="sub-nav">
+                    <a href="#" class="sub-nav-link active" data-target="dashboard">Início</a>
+                    <a href="#" class="sub-nav-link" data-target="checkin">Check-in / Out</a>
+                    <a href="#" class="sub-nav-link" data-target="agenda">Minha Agenda</a>
+                    <a href="#" class="sub-nav-link" data-target="achievements">Conquistas</a>
+                    <a href="#" class="sub-nav-link" data-target="info">Informações</a>
+                    <a href="#" class="sub-nav-link" data-target="history">Histórico</a>
+                    <a href="#" class="sub-nav-link" data-target="settings">Configurações</a>
+                </nav>
+            </header>
+
+            <div class="content-wrapper">
+                <!-- SEÇÃO DASHBOARD -->
+                <section id="dashboard" class="content-section active">
+                    <div class="stat-grid">
+                        <div class="stat-card"><p>Status</p><h2 id="dashboard-status" class="status-ausente">Ausente</h2></div>
+                        <div class="stat-card"><p>Horas Semana</p><h2>31h</h2></div>
+                        <div class="stat-card"><p>Horas Mês</p><h2>128h</h2></div>
+                        <div class="stat-card"><p>Assiduidade</p><h2>96%</h2></div>
+                    </div>
+                    <div class="chart-card">
+                        <h3>Frequência Semanal</h3>
+                        <div class="chart-container"><canvas id="frequencyChart"></canvas></div>
+                    </div>
+                </section>
+    
+                <!-- SEÇÃO CHECK-IN -->
+                <section id="checkin" class="content-section">
+                    <h1 class="main-title">Registro de Ponto</h1>
+                    <div class="card">
+                        <h3>Status Atual: <span id="check-status" class="status status-absent">Ausente</span></h3>
+                        <p id="last-activity">Nenhuma atividade registrada hoje.</p>
+                        <div class="button-group">
+                            <button id="checkin-btn" class="btn btn-success"><i class="fa-solid fa-arrow-right-to-bracket"></i> Realizar Check-in</button>
+                            <button id="checkout-btn" class="btn btn-danger" disabled><i class="fa-solid fa-arrow-right-from-bracket"></i> Realizar Check-out</button>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3>Problemas com a Frequência?</h3>
+                        <p>Se você faltou ou vai faltar, justifique aqui. Anexe um atestado se necessário.</p>
+                        <div class="button-group">
+                            <button id="justify-btn" class="btn btn-primary"><i class="fa-solid fa-file-circle-plus"></i> Justificar Falta / Enviar Atestado</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SEÇÃO AGENDA -->
+                <section id="agenda" class="content-section">
+                    <h1 class="main-title">Minha Agenda</h1>
+                    <div class="card agenda-wrapper">
+                        <div class="calendar-container">
+                            <div class="calendar-header">
+                                <button class="calendar-nav"><i class="fa-solid fa-chevron-left"></i></button>
+                                <h2>August 2025</h2>
+                                <button class="calendar-nav"><i class="fa-solid fa-chevron-right"></i></button>
+                            </div>
+                            <div class="calendar-grid">
+                                <div class="day-name">Su</div><div class="day-name">Mo</div><div class="day-name">Tu</div><div class="day-name">We</div><div class="day-name">Th</div><div class="day-name">Fr</div><div class="day-name">Sa</div>
+                                <div class="day other-month">27</div><div class="day other-month">28</div><div class="day other-month">29</div><div class="day other-month">30</div><div class="day other-month">31</div><div class="day">1</div><div class="day event">2</div>
+                                <div class="day">3</div><div class="day">4</div><div class="day">5</div><div class="day">6</div><div class="day">7</div><div class="day">8</div><div class="day">9</div>
+                                <div class="day">10</div><div class="day">11</div><div class="day today">12</div><div class="day">13</div><div class="day">14</div><div class="day">15</div><div class="day">16</div>
+                                <div class="day">17</div><div class="day">18</div><div class="day">19</div><div class="day">20</div><div class="day">21</div><div class="day">22</div><div class="day">23</div>
+                                <div class="day">24</div><div class="day">25</div><div class="day">26</div><div class="day">27</div><div class="day">28</div><div class="day">29</div><div class="day">30</div>
+                                <div class="day">31</div><div class="day other-month">1</div><div class="day other-month">2</div><div class="day other-month">3</div><div class="day other-month">4</div><div class="day other-month">5</div><div class="day other-month">6</div>
+                            </div>
+                        </div>
+                        <div class="events-container">
+                            <h3>Próximos eventos</h3>
+                            <div class="event-item"><p class="event-title">Reunião de acompanhamento</p><span class="event-day">Terça</span></div>
+                            <div class="event-item"><p class="event-title">Entrega de relatório semanal</p><span class="event-day">Quinta</span></div>
+                            <div class="event-item"><p class="event-title">Workshop de Carreira</p><span class="event-day">Sexta</span></div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- SEÇÃO CONQUISTAS -->
+                <section id="achievements" class="content-section">
+                    <h1 class="main-title">Metas e Conquistas</h1>
+                    <div class="achievements-grid">
+                        <div class="achievement-card"><i class="fa-solid fa-calendar-check achievement-icon"></i><h3>Frequência Perfeita</h3><p>Compareceu a todos os dias no mês de Julho.</p><span class="date-unlocked">Desbloqueado em 01/08/2025</span></div>
+                        <div class="achievement-card"><i class="fa-solid fa-hourglass-start achievement-icon"></i><h3>Pontualidade em Dobro</h3><p>Realizou o check-in no horário por 2 semanas seguidas.</p><span class="date-unlocked">Desbloqueado em 28/07/2025</span></div>
+                        <div class="achievement-card locked"><i class="fa-solid fa-lock achievement-icon"></i><h3>Mestre do Projeto</h3><p>Complete 50 horas de atividades no seu projeto.</p><div class="progress-bar"><div class="progress" style="width: 60%;"></div></div></div>
+                        <div class="achievement-card locked"><i class="fa-solid fa-lock achievement-icon"></i><h3>Colaborador Nato</h3><p>Receba 3 feedbacks positivos dos educadores.</p><div class="progress-bar"><div class="progress" style="width: 33%;"></div></div></div>
+                    </div>
+                </section>
+
+                <!-- SEÇÃO INFORMAÇÕES -->
+                <section id="info" class="content-section">
+                    <h1 class="main-title">Informações Cadastrais</h1>
+                    <div class="info-grid">
+                        <div class="card">
+                            <h3>Dados Pessoais</h3>
+                            <div class="info-group"><label>Nome:</label> <span>Mariana Lima da Costa</span></div>
+                            <div class="info-group"><label>Email:</label> <span>mariana.costa@email.com</span></div>
+                            <div class="info-group"><label>Projeto:</label> <span>Programa Jovem Aprendiz (PJA)</span></div>
+                        </div>
+                        <div class="card">
+                            <h3>Documentos</h3>
+                            <div class="info-group"><label>RG:</label> <span>12.345.678-9</span></div>
+                            <div class="info-group"><label>CPF:</label> <span>123.456.789-00</span></div>
+                            <div class="document-upload-area">
+                                <label>Declaração Escolar</label>
+                                <div class="file-input-wrapper">
+                                    <input type="file" id="declaracao-upload" accept=".pdf,.jpg,.jpeg,.png" style="display: none;">
+                                    <label for="declaracao-upload" class="btn btn-primary"><i class="fa-solid fa-paperclip"></i> Escolher Arquivo</label>
+                                    <span id="file-name-status">Nenhum arquivo selecionado.</span>
+                                </div>
+                                <button id="submit-declaracao-btn" class="btn btn-primary" disabled><i class="fa-solid fa-upload"></i> Enviar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card full-width">
+                        <h3>Feedbacks dos Educadores</h3>
+                        <div class="feedback-item">
+                            <p class="feedback-text">"Excelente progresso nas atividades em grupo. Sua proatividade está fazendo a diferença!"</p>
+                            <span class="feedback-author">- Carlos Andrade (Educador)</span>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- SEÇÃO HISTÓRICO -->
+                <section id="history" class="content-section">
+                    <h1 class="main-title">Histórico de Atividades</h1>
+                    <div class="card">
+                        <div class="history-table-container">
+                            <table class="history-table">
+                                <thead><tr><th>Data</th><th>Tipo</th><th>Horário</th><th>Status</th><th>Detalhes</th></tr></thead>
+                                <tbody>
+                                    <tr><td>02/08/2025</td><td>Check-in</td><td>08:02</td><td><span class="status status-ok">Realizado</span></td><td>--</td></tr>
+                                    <tr><td>02/08/2025</td><td>Check-out</td><td>17:05</td><td><span class="status status-ok">Realizado</span></td><td>--</td></tr>
+                                    <tr><td>01/08/2025</td><td>Falta</td><td>--</td><td><span class="status status-justified">Justificada</span></td><td>Consulta médica. <a href="#">Ver atestado</a></td></tr>
+                                    <tr><td>31/07/2025</td><td>Check-in</td><td>08:17</td><td><span class="status status-late">Atraso</span></td><td>Trânsito.</td></tr>
+                                    <tr><td>30/07/2025</td><td>Falta</td><td>--</td><td><span class="status status-absent">Não justificada</span></td><td>--</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SEÇÃO CONFIGURAÇÕES -->
+                <section id="settings" class="content-section">
+                    <h1 class="main-title">Configurações</h1>
+                    <div class="card">
+                        <h3>Segurança da Conta</h3>
+                        <div class="settings-group">
+                            <label>Alterar Senha</label>
+                            <input type="password" placeholder="Senha Atual">
+                            <input type="password" placeholder="Nova Senha">
+                            <button class="btn btn-primary">Salvar Nova Senha</button>
+                        </div>
+                        <div class="settings-group">
+                            <label>Autenticação de 2 Fatores (2FA)</label>
+                             <p>Aumente a segurança da sua conta.</p>
+                            <button class="btn btn-primary">Configurar 2FA</button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+    
+    <!-- MODAL DE JUSTIFICATIVA -->
+    <div id="justification-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="close-button">&times;</button>
+            <h2>Justificar Falta / Anexar Atestado</h2>
+            <form id="justification-form">
+                <div class="form-group"><label for="absence-date">Data da Falta</label><input type="date" id="absence-date" required></div>
+                <div class="form-group"><label for="justification-text">Motivo</label><textarea id="justification-text" rows="4" placeholder="Ex: Consulta médica."></textarea></div>
+                <div class="form-group"><label for="attestation-file">Anexar Atestado (PDF, JPG)</label><input type="file" id="attestation-file" accept=".pdf,.jpg,.jpeg,.png"></div>
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="home.script.js"></script>
+</body>
+</html>

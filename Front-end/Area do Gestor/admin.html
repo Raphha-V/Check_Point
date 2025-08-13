@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel do Gestor - Checkpoint</title>
+  <link rel="stylesheet" href="admin.style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+</head>
+
+<body>
+  <div class="app-container">
+    <!-- SIDEBAR DO ADMIN -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <img src="./Icone/logo branca.png" alt="Ícone Checkpoint" class="logo-icon">
+        <h2 class="sidebar-text">Checkpoint</h2>
+      </div>
+
+      <nav class="app-nav">
+        <ul>
+          <li><a href="#" class="nav-link active" data-target="dashboard"><i class="fa-solid fa-chart-pie"></i> <span
+                class="sidebar-text">Dashboard</span></a></li>
+          <li><a href="#" class="nav-link" data-target="students"><i class="fa-solid fa-users"></i> <span
+                class="sidebar-text">Alunos</span></a></li>
+          <li><a href="#" class="nav-link" data-target="justifications"><i class="fa-solid fa-file-circle-check"></i>
+              <span class="sidebar-text">Justificativas</span></a></li>
+          <li><a href="#" class="nav-link" data-target="reports"><i class="fa-solid fa-file-invoice"></i> <span
+                class="sidebar-text">Relatórios</span></a></li>
+          <li><a href="#" class="nav-link" data-target="settings-admin"><i class="fa-solid fa-gear"></i> <span
+                class="sidebar-text">Configurações</span></a></li>
+        </ul>
+      </nav>
+
+      <div class="profile">
+        <div class="profile-pic-container">
+          <img src="https://i.pravatar.cc/150?img=68" alt="Foto do Gestor" id="admin-profile-pic" class="profile-pic">
+          <label for="admin-photo-upload" class="profile-pic-edit">
+            <i class="fa-solid fa-camera"></i>
+          </label>
+          <input type="file" id="admin-photo-upload" accept="image/*" style="display: none;">
+        </div>
+        <div class="profile-info sidebar-text">
+          <p class="profile-name">Carlos Andrade</p>
+          <a href="index.html" class="logout-link">Sair <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ÁREA DE CONTEÚDO PRINCIPAL DO ADMIN -->
+    <main class="main-content" id="main-content">
+      <header class="main-header">
+        <nav class="sub-nav">
+          <a href="#" class="sub-nav-link active" data-target="dashboard">Dashboard</a>
+          <a href="#" class="sub-nav-link" data-target="students">Alunos</a>
+          <a href="#" class="sub-nav-link" data-target="justifications">Justificativas</a>
+          <a href="#" class="sub-nav-link" data-target="reports">Relatórios</a>
+          <a href="#" class="sub-nav-link" data-target="settings-admin">Configurações</a>
+        </nav>
+      </header>
+
+      <div class="content-wrapper">
+        <!-- SEÇÃO DASHBOARD -->
+        <section id="dashboard" class="content-section active">
+          <div class="stat-grid">
+            <div class="stat-card">
+              <p>Alunos Presentes Hoje</p>
+              <h2>18 <span class="stat-total">/ 25</span></h2>
+            </div>
+            <div class="stat-card">
+              <p>Justificativas Pendentes</p>
+              <h2>3</h2>
+            </div>
+            <div class="stat-card">
+              <p>Assiduidade Média</p>
+              <h2>92%</h2>
+            </div>
+          </div>
+          <div class="admin-panel-grid">
+            <div class="card">
+              <h3><i class="fa-solid fa-hourglass-half"></i> Justificativas para Análise</h3>
+              <div class="task-list">
+                <div class="task-item">
+                  <div class="task-info">
+                    <p class="task-title">Atestado Médico</p><span class="task-subtitle">Enviado por: Joana Pires</span>
+                  </div>
+                  <div class="task-actions"><button class="btn btn-icon btn-success"><i
+                        class="fa-solid fa-check"></i></button><button class="btn btn-icon btn-danger"><i
+                        class="fa-solid fa-xmark"></i></button></div>
+                </div>
+                <div class="task-item">
+                  <div class="task-info">
+                    <p class="task-title">Problemas com transporte</p><span class="task-subtitle">Enviado por: Lucas
+                      Almeida</span>
+                  </div>
+                  <div class="task-actions"><button class="btn btn-icon btn-success"><i
+                        class="fa-solid fa-check"></i></button><button class="btn btn-icon btn-danger"><i
+                        class="fa-solid fa-xmark"></i></button></div>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <h3><i class="fa-solid fa-bolt"></i> Atividade Recente</h3>
+              <div class="activity-feed">
+                <div class="activity-item"><i class="fa-solid fa-right-to-bracket activity-icon checkin"></i>
+                  <p><strong>Mariana Lima</strong> fez check-in às 08:01.</p>
+                </div>
+                <div class="activity-item"><i class="fa-solid fa-file-arrow-up activity-icon justification"></i>
+                  <p><strong>Joana Pires</strong> enviou um atestado.</p>
+                </div>
+                <div class="activity-item"><i class="fa-solid fa-comment-dots activity-icon feedback"></i>
+                  <p>Você enviou um feedback para <strong>Rafael Borges</strong>.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SEÇÃO ALUNOS -->
+        <section id="students" class="content-section">
+          <h1 class="main-title">Gestão de Alunos</h1>
+          <div class="toolbar">
+            <div class="search-wrapper"><i class="fa-solid fa-magnifying-glass"></i><input type="text"
+                placeholder="Buscar aluno..."></div>
+            <button class="btn btn-primary"><i class="fa-solid fa-user-plus"></i> Adicionar Aluno</button>
+          </div>
+          <div class="card">
+            <div class="table-container">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Nome</th>
+                    <th>Projeto</th>
+                    <th>Status Hoje</th>
+                    <th>Ações</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Mariana Lima</td>
+                    <td>Programa Jovem Aprendiz</td>
+                    <td><span class="status status-ok">Presente</span></td>
+                    <td><button class="btn btn-icon" title="Ver Perfil"><i class="fa-solid fa-eye"></i></button> <button
+                        class="btn btn-icon" title="Enviar Feedback"><i class="fa-solid fa-comment-dots"></i></button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Joana Pires</td>
+                    <td>SCFV</td>
+                    <td><span class="status status-justified">Justificado</span></td>
+                    <td><button class="btn btn-icon" title="Ver Perfil"><i class="fa-solid fa-eye"></i></button> <button
+                        class="btn btn-icon" title="Enviar Feedback"><i class="fa-solid fa-comment-dots"></i></button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Lucas Almeida</td>
+                    <td>Primeiro Passo</td>
+                    <td><span class="status status-absent">Ausente</span></td>
+                    <td><button class="btn btn-icon" title="Ver Perfil"><i class="fa-solid fa-eye"></i></button> <button
+                        class="btn btn-icon" title="Enviar Feedback"><i class="fa-solid fa-comment-dots"></i></button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- SEÇÃO JUSTIFICATIVAS -->
+        <section id="justifications" class="content-section">
+          <h1 class="main-title">Análise de Justificativas</h1>
+          <div class="card">
+            <h3>3 pendentes de análise</h3>
+            <div class="table-container">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Aluno</th>
+                    <th>Data da Falta</th>
+                    <th>Motivo</th>
+                    <th>Anexo</th>
+                    <th>Ações</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Joana Pires</td>
+                    <td>01/08/2025</td>
+                    <td>Consulta Médica</td>
+                    <td><a href="#">Ver Atestado</a></td>
+                    <td><button class="btn btn-sm btn-success">Aprovar</button><button
+                        class="btn btn-sm btn-danger">Recusar</button></td>
+                  </tr>
+                  <tr>
+                    <td>Lucas Almeida</td>
+                    <td>02/08/2025</td>
+                    <td>Problemas com transporte</td>
+                    <td>Nenhum</td>
+                    <td><button class="btn btn-sm btn-success">Aprovar</button><button
+                        class="btn btn-sm btn-danger">Recusar</button></td>
+                  </tr>
+                  <tr>
+                    <td>Rafael Borges</td>
+                    <td>02/08/2025</td>
+                    <td>Doença (sem atestado)</td>
+                    <td>Nenhum</td>
+                    <td><button class="btn btn-sm btn-success">Aprovar</button><button
+                        class="btn btn-sm btn-danger">Recusar</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- SEÇÃO RELATÓRIOS -->
+        <section id="reports" class="content-section">
+          <h1 class="main-title">Relatórios</h1>
+          <div class="card">
+            <h3>Gerar Novo Relatório</h3>
+            <form class="form-grid">
+              <div class="form-group"><label>Tipo de Relatório</label><select>
+                  <option>Frequência Geral</option>
+                  <option>Faltas e Atrasos</option>
+                </select></div>
+              <div class="form-group"><label>Projeto</label><select>
+                  <option>Todos</option>
+                  <option>SCFV</option>
+                  <option>PJA</option>
+                </select></div>
+              <div class="form-group"><label>Data de Início</label><input type="date"></div>
+              <div class="form-group"><label>Data de Fim</label><input type="date"></div>
+              <div class="form-group full-width"><button class="btn btn-primary"><i class="fa-solid fa-download"></i>
+                  Gerar e Baixar Relatório</button></div>
+            </form>
+          </div>
+        </section>
+
+        <!-- SEÇÃO CONFIGURAÇÕES -->
+        <section id="settings-admin" class="content-section">
+          <h1 class="main-title">Configurações do Painel</h1>
+          <div class="card">
+            <h3>Minha Conta</h3>
+            <form class="form-grid">
+              <div class="form-group"><label>Nome</label><input type="text" value="Carlos Andrade"></div>
+              <div class="form-group"><label>Email</label><input type="email" value="carlos.andrade@educador.com"></div>
+              <div class="form-group"><label>Nova Senha</label><input type="password"
+                  placeholder="Deixe em branco para não alterar"></div>
+              <div class="form-group full-width"><button class="btn btn-primary">Salvar Alterações</button></div>
+            </form>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+  <script src="admin.script.js"></script>
+</body>
+
+</html>

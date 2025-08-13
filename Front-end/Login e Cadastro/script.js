@@ -56,3 +56,27 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 }); // <-- O seu arquivo termina com isso. Adicione o código ACIMA desta linha.});
+
+// Adicione este código no final do seu arquivo script.js
+
+// Esta função será executada assim que a página carregar
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // ... (o seu código anterior de troca de telas continua aqui em cima) ...
+
+    // --- TESTE DE CONEXÃO COM O BACK-END ---
+    // A função 'fetch' é o jeito do JavaScript fazer requisições na internet
+    fetch('http://127.0.0.1:5000/api/status')
+        .then(response => response.json()) // Converte a resposta para o formato JSON
+        .then(data => {
+            // Se tudo deu certo, 'data' será o objeto que enviamos do Python
+            console.log("Mensagem do Back-end:", data.message);
+            // Podemos até mostrar um alerta para ter certeza que funcionou
+            alert("Conexão com o back-end estabelecida com sucesso!");
+        })
+        .catch(error => {
+            // Se algo der errado (ex: servidor desligado), veremos um erro
+            console.error("Erro ao conectar com o back-end:", error);
+            alert("ERRO: Não foi possível conectar ao servidor. Verifique se o app.py está rodando.");
+        });
+});

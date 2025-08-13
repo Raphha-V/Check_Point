@@ -1,5 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
+/* Definindo as variáveis de cor do nosso novo design system */
+:root {
+    --sidebar-bg: #1e1b33;
+    --main-bg: #2a2744;
+    --card-bg: #3c3861;
+    --text-primary: #f0f0f0;
+    --text-secondary: #a0a0b3;
+    --accent-color: #8a63d2;
+    --border-color: #4a4674;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -7,15 +18,18 @@
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
-    background-color: #f4f7f9;
+    background-color: var(--main-bg);
+    /* Fundo principal escuro */
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
 }
 
+/* Container principal com o novo visual */
 .container {
-    background-color: #fff;
+    background-color: var(--sidebar-bg);
+    /* Fundo do container um pouco mais escuro */
     border-radius: 15px;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     position: relative;
@@ -28,8 +42,8 @@ body {
 h1 {
     font-weight: 600;
     font-size: 2.2em;
-    margin: -20px;
-
+    margin: 0;
+    color: var(--text-primary);
 }
 
 p {
@@ -38,22 +52,28 @@ p {
     line-height: 20px;
     letter-spacing: 0.5px;
     margin: 20px 0 30px;
+    color: white;
 }
 
 span {
     font-size: 12px;
     margin-bottom: 10px;
+    color: var(--text-secondary);
 }
 
 a {
-    color: #333;
+    color: var(--text-secondary);
     font-size: 14px;
     text-decoration: none;
     margin: 15px 0;
 }
 
+a:hover {
+    color: var(--text-primary);
+}
+
 form {
-    background-color: #FFFFFF;
+    background-color: var(--sidebar-bg);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -83,7 +103,7 @@ form {
     z-index: 1;
 }
 
-/* Estilos de input do design anterior */
+/* Estilos de input com o novo tema */
 .input-group {
     position: relative;
     margin-bottom: 15px;
@@ -95,7 +115,7 @@ form {
     left: 20px;
     top: 50%;
     transform: translateY(-50%);
-    color: #aaa;
+    color: var(--text-secondary);
     z-index: 1;
 }
 
@@ -103,16 +123,17 @@ form {
 .input-group select {
     width: 100%;
     padding: 12px 15px 12px 50px;
-    border: 1px solid #ddd;
-    background-color: #ffffff;
+    border: 1px solid var(--border-color);
+    background-color: var(--main-bg);
     border-radius: 10px;
     font-family: 'Poppins', sans-serif;
     font-size: 1em;
     transition: border-color 0.3s ease;
+    color: var(--text-primary);
 }
 
 .input-group select {
-    color: #555;
+    color: var(--text-secondary);
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -122,7 +143,7 @@ form {
 .input-group input:focus,
 .input-group select:focus {
     outline: none;
-    border-color: #6a5af9;
+    border-color: var(--accent-color);
 }
 
 .select-wrapper {
@@ -136,19 +157,19 @@ form {
     top: 50%;
     transform: translateY(-50%);
     pointer-events: none;
-    color: #aaa;
+    color: var(--text-secondary);
     transition: color 0.3s ease;
 }
 
 .select-wrapper:focus-within .select-arrow {
-    color: #6a5af9;
+    color: var(--accent-color);
 }
 
 
-/* Botões com o estilo anterior */
+/* Botões com o novo estilo */
 .main-button {
-    background-color: #6a5af9;
-    color: #ffffff;
+    background-color: var(--accent-color);
+    color: var(--text-primary);
     padding: 12px 45px;
     border: none;
     border-radius: 30px;
@@ -156,12 +177,13 @@ form {
     font-weight: 600;
     cursor: pointer;
     width: 100%;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
     text-transform: uppercase;
 }
 
 .main-button:hover {
-    background-color: #5548c7;
+    filter: brightness(1.1);
+    transform: translateY(-2px);
 }
 
 .main-button:active {
@@ -174,9 +196,9 @@ form {
 
 .panel-button {
     background-color: transparent;
-    border: 2px solid #ffffff;
-    color: #ffffff;
-    padding: 8px 45px;
+    border: 2px solid var(--text-primary);
+    color: var(--text-primary);
+    padding: 12px 45px;
     border-radius: 30px;
     font-size: 1em;
     font-weight: 600;
@@ -186,8 +208,8 @@ form {
 }
 
 .panel-button:hover {
-    background-color: #ffffff;
-    color: #6a5af9;
+    background-color: var(--text-primary);
+    color: var(--accent-color);
 }
 
 .panel-button:active {
@@ -207,7 +229,7 @@ form {
 }
 
 .social-icon {
-    border: 1px solid #DDDDDD;
+    border: 1px solid var(--border-color);
     border-radius: 50%;
     display: inline-flex;
     justify-content: center;
@@ -215,14 +237,13 @@ form {
     height: 40px;
     width: 40px;
     transition: all 0.3s ease-in-out;
-    color: #333;
+    color: var(--text-secondary);
     text-decoration: none;
-
 }
 
 .social-icon:hover {
-    border-color: #6a5af9;
-    color: #6a5af9;
+    border-color: var(--accent-color);
+    color: var(--accent-color);
 }
 
 /* --- Lógica da Animação --- */
@@ -238,13 +259,9 @@ form {
 }
 
 .overlay {
-    background: #6a5af9;
-    background: -webkit-linear-gradient(to right, #5548c7, #6a5af9);
-    background: linear-gradient(to right, #5548c7, #6a5af9);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: 0 0;
-    color: #FFFFFF;
+    background: var(--accent-color);
+    background: linear-gradient(to right, #5548c7, var(--accent-color));
+    color: var(--text-primary);
     position: relative;
     left: -100%;
     height: 100%;
@@ -268,6 +285,12 @@ form {
     transition: transform 0.6s ease-in-out;
 }
 
+.overlay-logo {
+    height: 50px;
+    margin-bottom: 20px;
+    filter: brightness(0) invert(1);
+}
+
 .overlay-left {
     transform: translateX(-20%);
 }
@@ -277,17 +300,14 @@ form {
     transform: translateX(0);
 }
 
-/* Move o painel de login para a direita quando clicamos em Cadastrar */
 .container.right-panel-active .sign-in-container {
     transform: translateX(100%);
 }
 
-/* Move o overlay (painel azul) para a esquerda */
 .container.right-panel-active .overlay-container {
     transform: translateX(-100%);
 }
 
-/* Traz o painel de cadastro para a frente */
 .container.right-panel-active .sign-up-container {
     transform: translateX(100%);
     opacity: 1;
@@ -310,17 +330,14 @@ form {
     }
 }
 
-/* Move o overlay de volta para a direita */
 .container.right-panel-active .overlay {
     transform: translateX(50%);
 }
 
-/* Move o painel esquerdo do overlay para a posição */
 .container.right-panel-active .overlay-left {
     transform: translateX(0);
 }
 
-/* Esconde o painel direito do overlay */
 .container.right-panel-active .overlay-right {
     transform: translateX(20%);
 }

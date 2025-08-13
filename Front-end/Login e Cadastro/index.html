@@ -4,18 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CheckPoint</title>
+    <title>Sistema de Check-in de Alunos</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Biblioteca de ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 </head>
 
 <body>
 
     <div class="container" id="container">
+        <!-- FORMULÁRIO DE CADASTRO -->
         <div class="form-container sign-up-container">
             <form action="#">
                 <h1>Crie sua Conta</h1>
-                <div class="social-icons">
+                <div class="social-container">
                     <a href="#" class="social-icon"><i class="fab fa-google"></i></a>
                     <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
@@ -48,10 +50,11 @@
             </form>
         </div>
 
+        <!-- FORMULÁRIO DE LOGIN -->
         <div class="form-container sign-in-container">
             <form action="#">
                 <h1>Login</h1>
-                <div class="social-icons">
+                <div class="social-container">
                     <a href="#" class="social-icon"><i class="fab fa-google"></i></a>
                     <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
@@ -71,14 +74,21 @@
             </form>
         </div>
 
+        <!-- PAINEL DESLIZANTE (OVERLAY) -->
         <div class="overlay-container">
             <div class="overlay">
+                <!-- Painel da Esquerda (mostrado na tela de Cadastro) -->
                 <div class="overlay-panel overlay-left">
+                    <!-- LOGO ADICIONADA AQUI -->
+                    <img src="./imagens/logo - branca.png" alt="Ícone Checkpoint" class="overlay-logo">
                     <h1>Bem-vindo de Volta!</h1>
                     <p>Já possui uma conta?</p>
                     <button class="panel-button" id="signIn" type="button">Faça Login</button>
                 </div>
+                <!-- Painel da Direita (mostrado na tela de Login) -->
                 <div class="overlay-panel overlay-right">
+                    <!-- LOGO ADICIONADA AQUI -->
+                    <img src="./imagens/logo - branca.png" alt="Ícone Checkpoint" class="overlay-logo">
                     <h1>Olá, Bem-vindo!</h1>
                     <p>Ainda não tem uma conta?</p>
                     <button class="panel-button" id="signUp" type="button">Cadastre-se</button>
