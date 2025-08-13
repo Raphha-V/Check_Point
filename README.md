@@ -6,25 +6,7 @@
 
 Um sistema de gestão de frequência de alunos, com um protótipo de front-end completo e o back-end em desenvolvimento com Python e Flask. O projeto é projetado para ser intuitivo, moderno e rico em funcionalidades tanto para alunos quanto para gestores.
 
----
 
-## 📷 Screenshots
-
-<p align="center">
-  <strong>Tela de Login e Cadastro </strong><br>
-  <img src="./imagens/login.png" alt="tela de login" width=300>
-  <img src="./imagens/Cadastro.png" alt="tela de cadastro" width=300>
-</p>
-<p align="center">
-  <strong>Dashboard do Aluno</strong><br>
-  <img src="./imagens/Painel aluno 1.png" alt="Area do Aluno" width=300>
-  <img src="./imagens/Painel aluno 2.png" alt="Area do aluno 2" width=300> 
-</p>
-<p align="center">
-  <strong>Painel do Gestor</strong><br>
-  <img src="./imagens/Painel gestor 1.png" alt="Painel do gestor" width=300>
-  <img src="./imagens/Painel gestor 2.png" alt="Painel gestor 2" width=300>
-</p>
 
 ---
 
