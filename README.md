@@ -92,7 +92,7 @@ Este projeto está sendo desenvolvido com jovens talentos.
 | Eurick Lima | Social Media & Comunicação |
 | Gabriel Lucio | Social Media & Comunicação |
 | Myllena de Oliveira | Social Media & Comunicação |
-| Alycia Alves | Coordenador(a) de Projeto |
+| Alicya Alves | Coordenador(a) de Projeto |
 | Eloá Rodrigues | Coordenador(a) de Projeto |
 | Lavínia Silva | Coordenador(a) de Projeto |
 | Lavínia Borges | Coordenador(a) de Projeto |
